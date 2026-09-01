@@ -1,26 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
+/* ── Custom fonts (extracted from source site) ── */
+@font-face {
+  font-family: "PressBox Clean";
+  src: url("/fonts/pressbox-clean.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TAY Rosemary";
+  src: url("/fonts/tay-rosemary.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roadway";
+  src: url("/fonts/roadway.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Palmello";
+  src: url("/fonts/palmello.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design tokens ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream-50: #f8f6ef;
+  --cream-100: #eae5ce;
+  --cream-200: #dcd5b8;
+  --ink-700: #3a3a3a;
+  --ink-800: #1a1a1a;
+  --ink-900: #0b0b0b;
+  --pink: #ea0049;
+  --pink-600: #c4003d;
+  --pink-700: #9e0031;
+  --yellow: #eac700;
+  --yellow-600: #b89e00;
+  --teal: #00a3ce;
+  --teal-600: #00829f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
+  --color-ink-700: var(--ink-700);
+  --color-ink-800: var(--ink-800);
+  --color-ink-900: var(--ink-900);
+  --color-pink: var(--pink);
+  --color-pink-600: var(--pink-600);
+  --color-pink-700: var(--pink-700);
+  --color-yellow: var(--yellow);
+  --color-yellow-600: var(--yellow-600);
+  --color-teal: var(--teal);
+  --color-teal-600: var(--teal-600);
+  --font-sans: "Inter", sans-serif;
+  --font-display: "PressBox Clean", "Arial Black", sans-serif;
+  --font-heading: "TAY Rosemary", "Arial Narrow", sans-serif;
+  --font-tag: "Roadway", "Arial Narrow", sans-serif;
+  --font-script: "Palmello", cursive;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  background: var(--ink-900);
+  color: var(--cream-100);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-tag {
+  font-family: var(--font-tag);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* ── Custom utilities (from source site) ── */
+.glow-bg {
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(0, 163, 206, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 75% 15%,
+      rgba(234, 199, 0, 0.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 60% 80%,
+      rgba(234, 0, 73, 0.3),
+      transparent 45%
+    );
+}
+
+.poster-frame {
+  transform: rotate(-1.5deg);
+}
+
+.card-a {
+  transform: rotate(-1deg);
+}
+
+.card-b {
+  transform: rotate(1deg);
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollx 28s linear infinite;
+}
+
+@keyframes scrollx {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.chev {
+  transition: transform 0.2s;
+}
+
+details[open] .chev {
+  transform: rotate(180deg);
 }
