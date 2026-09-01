@@ -7,7 +7,10 @@ const ARTISTS =
 export function Marquee() {
   const track = ARTISTS.repeat(2);
   return (
-    <section className="bg-yellow py-4 overflow-hidden border-y-4 border-ink-900">
+    <section
+      className="bg-yellow py-4 overflow-hidden border-y-4 border-ink-900"
+      aria-label="Featured artists"
+    >
       <div className="marquee-track font-tag uppercase text-lg sm:text-xl tracking-widest text-ink-900">
         <span className="px-4">{track}</span>
         <span className="px-4" aria-hidden="true">

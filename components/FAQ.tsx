@@ -55,12 +55,19 @@ function Chevron() {
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-ink-900 py-16 sm:py-20">
+    <section
+      id="faq"
+      className="bg-ink-900 py-16 sm:py-20"
+      aria-labelledby="faq-heading"
+    >
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <p className="font-tag uppercase text-xs tracking-widest text-cream-100/50 mb-1 text-center">
           FAQ
         </p>
-        <h2 className="font-display text-5xl sm:text-6xl text-cream-100 text-center mb-10">
+        <h2
+          id="faq-heading"
+          className="font-display text-5xl sm:text-6xl text-cream-100 text-center mb-10"
+        >
           QUESTIONS?
         </h2>
         <div className="space-y-3">

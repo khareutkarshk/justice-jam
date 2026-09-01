@@ -157,3 +157,72 @@ details > summary::-webkit-details-marker {
 details[open] .chev {
   transform: rotate(180deg);
 }
+
+/* ── Accessibility ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--yellow);
+  color: var(--ink-900);
+  font-family: var(--font-tag);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 0.125rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline-color: var(--yellow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    justify-content: center;
+    white-space: normal;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .poster-frame,
+  .card-a,
+  .card-b {
+    transform: none;
+  }
+
+  .chev,
+  details[open] .chev {
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
