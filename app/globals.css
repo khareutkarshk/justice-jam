@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
-/* ── Custom fonts (extracted from source site) ── */
 @font-face {
   font-family: "PressBox Clean";
   src: url("/fonts/pressbox-clean.otf") format("opentype");
@@ -34,7 +33,6 @@
   font-display: swap;
 }
 
-/* ── Design tokens ── */
 :root {
   --cream-50: #f8f6ef;
   --cream-100: #eae5ce;
@@ -94,7 +92,6 @@ body {
   font-family: var(--font-script);
 }
 
-/* ── Custom utilities (from source site) ── */
 .glow-bg {
   background:
     radial-gradient(
@@ -158,7 +155,6 @@ details[open] .chev {
   transform: rotate(180deg);
 }
 
-/* ── Accessibility ── */
 .skip-link {
   position: absolute;
   top: -100%;
