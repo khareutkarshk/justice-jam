@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { TicketCta } from "@/components/TicketCta";
 import { navLinks } from "@/lib/site";
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -52,7 +53,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-ink-900/95 backdrop-blur border-b-2 border-teal">
+    <header className="sticky top-0 z-50 bg-ink-900/95 backdrop-blur border-b-4 border-teal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         <Link
           href="#top"
@@ -63,7 +64,7 @@ export function Header() {
         </Link>
 
         <nav
-          className="hidden md:flex gap-7 font-tag uppercase text-xs tracking-widest text-cream-100/80"
+          className="hidden md:flex gap-7 font-tag uppercase text-xs tracking-[0.2em] text-cream-100/80"
           aria-label="Main navigation"
         >
           {navLinks.map(({ href, label }) => (
@@ -78,13 +79,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="#tickets"
-            className="hidden sm:inline-flex bg-teal text-ink-900 font-tag uppercase text-xs tracking-widest px-5 py-2.5 rounded-sm hover:bg-yellow hover:text-ink-900 transition-colors"
-            onClick={closeMenu}
-          >
-            Get Tickets
-          </Link>
+          <span onClick={closeMenu}>
+            <TicketCta className="btn-primary hidden sm:inline-flex bg-teal text-ink-900 font-tag uppercase text-xs tracking-[0.2em] px-5 py-2.5 rounded-sm hover:bg-yellow hover:text-ink-900 transition-colors">
+              Get Tickets
+            </TicketCta>
+          </span>
 
           <button
             ref={menuButtonRef}
@@ -104,17 +103,17 @@ export function Header() {
         <>
           <button
             type="button"
-            className="md:hidden fixed inset-0 top-[57px] bg-ink-900/60 z-40"
+            className="md:hidden fixed inset-0 top-14 bg-ink-900/60 z-40"
             aria-label="Close menu overlay"
             onClick={closeMenu}
           />
           <nav
             id={menuId}
             ref={menuRef}
-            className="md:hidden absolute left-0 right-0 top-full z-50 bg-ink-900 border-b-2 border-teal shadow-lg"
+            className="md:hidden absolute left-0 right-0 top-full z-50 bg-ink-900 border-b-4 border-teal shadow-lg"
             aria-label="Mobile navigation"
           >
-            <ul className="flex flex-col font-tag uppercase text-sm tracking-widest">
+            <ul className="flex flex-col font-tag uppercase text-sm tracking-[0.2em]">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
@@ -126,14 +125,10 @@ export function Header() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="#tickets"
-                  className="block px-6 py-4 bg-teal text-ink-900 hover:bg-yellow transition-colors text-center"
-                  onClick={closeMenu}
-                >
+              <li onClick={closeMenu}>
+                <TicketCta className="btn-primary block px-6 py-4 bg-teal text-ink-900 hover:bg-yellow transition-colors text-center">
                   Get Tickets
-                </Link>
+                </TicketCta>
               </li>
             </ul>
           </nav>

@@ -5,7 +5,6 @@ export const images = {
   mccrarySisters: "/images/the-mccrary-sisters-29548f.jpg",
   angieK: "/images/angie-k-29548f.jpg",
   terriClark: "/images/terri-clark-29548f.jpg",
-  wendyMoten: "/images/wendy-moten-29548f.jpg",
   vitalogy: "/images/vitalogy-foundation-1ade8d.png",
   soundEmporium: "/images/sound-emporium-c59c69.png",
   logo: "/images/justice-jam-d5f4dc.png",

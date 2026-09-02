@@ -9,11 +9,11 @@ export function EventInfo() {
   return (
     <section
       id="info"
-      className="bg-ink-900 py-14 sm:py-20 border-t-4 border-yellow"
+      className="relative glow-bg-subtle py-14 sm:py-20 border-t-[6px] border-yellow"
       aria-labelledby="event-info-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <p className="font-tag uppercase text-yellow text-sm tracking-widest mb-1 text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <p className="font-tag uppercase text-yellow text-sm tracking-[0.2em] mb-1 text-center">
           Event Info
         </p>
         <h2
@@ -33,28 +33,28 @@ export function EventInfo() {
               ].map(({ label, value }) => (
                 <div
                   key={label}
-                  className="bg-ink-800 border border-cream-100/10 p-4"
+                  className="bg-ink-800 border-2 border-cream-100/10 p-4"
                 >
                   <p className="text-xs text-cream-100/50">{label}</p>
                   <p className="text-lg mt-1 text-cream-100">{value}</p>
                 </div>
               ))}
             </div>
-            <div className="mt-6 bg-yellow text-ink-900 p-5">
-              <p className="font-heading text-base mb-2">{venue.name}</p>
+            <div className="mt-6 bg-yellow text-ink-900 p-5 border-2 border-yellow">
+              <p className="font-display text-base mb-2">{venue.name}</p>
               <p className="text-sm text-ink-900/80">{address}</p>
             </div>
             <div className="mt-6 space-y-3">
-              <div className="bg-ink-800 p-4 border-l-4 border-teal">
-                <p className="font-heading text-sm text-cream-100">
+              <div className="bg-ink-800 p-4 border-l-[6px] border-teal">
+                <p className="font-display text-sm text-cream-100">
                   VIP Pre-Party — 3rd Man Records
                 </p>
                 <p className="text-xs mt-1 text-cream-100/70">
                   5:00 – 6:00 PM. Contact Ben Blackwell for details.
                 </p>
               </div>
-              <div className="bg-ink-800 p-4 border-l-4 border-pink-600">
-                <p className="font-heading text-sm text-cream-100">
+              <div className="bg-ink-800 p-4 border-l-[6px] border-pink-600">
+                <p className="font-display text-sm text-cream-100">
                   VIP After-Party — Amaranth
                 </p>
                 <p className="text-xs mt-1 text-cream-100/70">
@@ -72,9 +72,9 @@ export function EventInfo() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
-            <div className="p-4 text-center border-t border-cream-100/10">
-              <p className="font-heading text-lg text-cream-100">{venue.name}</p>
-              <p className="font-tag text-xs text-cream-100/70 uppercase tracking-wide mt-1">
+            <div className="p-4 text-center border-t-2 border-cream-100/10">
+              <p className="font-display text-lg text-cream-100">{venue.name}</p>
+              <p className="font-tag text-xs text-cream-100/70 uppercase tracking-[0.15em] mt-1">
                 {venue.street} · {venue.city}, {venue.region} {venue.postalCode}
               </p>
               <Link

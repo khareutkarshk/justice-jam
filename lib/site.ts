@@ -1,4 +1,6 @@
 import { images } from "@/lib/images";
+import { lineupArtists } from "@/lib/content";
+import { TICKETING_HREF } from "@/lib/tickets";
 
 export const siteConfig = {
   name: "Justice Jam",
@@ -32,19 +34,10 @@ export const siteConfig = {
       postalCode: "37203",
       country: "US",
     },
-    performers: [
-      "Mike McCready",
-      "Dierks Bentley",
-      "Jaid Joice",
-      "The McCrary Sisters",
-      "Angie K",
-      "Terri Clark",
-      "Bobby Messano",
-      "Wendy Moten",
-    ],
+    performers: lineupArtists.map((a) => a.name),
     ticketPrice: 125,
     ticketCurrency: "USD",
-    ticketUrl: "https://www.axs.com/",
+    ticketUrl: TICKETING_HREF,
   },
   maps: {
     embedUrl:

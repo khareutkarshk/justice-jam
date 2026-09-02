@@ -10,24 +10,8 @@
 }
 
 @font-face {
-  font-family: "TAY Rosemary";
-  src: url("/fonts/tay-rosemary.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Roadway";
   src: url("/fonts/roadway.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Palmello";
-  src: url("/fonts/palmello.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -65,9 +49,7 @@
   --color-teal-600: var(--teal-600);
   --font-sans: "Inter", sans-serif;
   --font-display: "PressBox Clean", "Arial Black", sans-serif;
-  --font-heading: "TAY Rosemary", "Arial Narrow", sans-serif;
   --font-tag: "Roadway", "Arial Narrow", sans-serif;
-  --font-script: "Palmello", cursive;
 }
 
 body {
@@ -80,16 +62,8 @@ body {
   font-family: var(--font-display);
 }
 
-.font-heading {
-  font-family: var(--font-heading);
-}
-
 .font-tag {
   font-family: var(--font-tag);
-}
-
-.font-script {
-  font-family: var(--font-script);
 }
 
 .glow-bg {
@@ -111,6 +85,21 @@ body {
     );
 }
 
+.glow-bg-subtle {
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 163, 206, 0.18),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(234, 199, 0, 0.12),
+      transparent 45%
+    ),
+    var(--ink-900);
+}
+
 .poster-frame {
   transform: rotate(-1.5deg);
 }
@@ -125,8 +114,12 @@ body {
 
 .marquee-track {
   display: flex;
-  white-space: nowrap;
-  animation: scrollx 28s linear infinite;
+  width: max-content;
+  animation: scrollx 35s linear infinite;
+}
+
+.marquee-segment {
+  flex-shrink: 0;
 }
 
 @keyframes scrollx {
@@ -136,6 +129,31 @@ body {
   to {
     transform: translateX(-50%);
   }
+}
+
+.lineup-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lineup-card:hover {
+  transform: scale(1.02) rotate(0deg);
+  box-shadow: 0 8px 32px rgba(0, 163, 206, 0.15);
+}
+
+.card-a:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+}
+
+.card-b:hover {
+  transform: scale(1.02) rotate(0.5deg);
+}
+
+.btn-primary {
+  box-shadow: 0 0 16px rgba(0, 163, 206, 0.45);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 24px rgba(0, 163, 206, 0.65);
 }
 
 details > summary {
@@ -196,21 +214,38 @@ summary:focus-visible,
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
-    justify-content: center;
-    white-space: normal;
+    width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
+  }
+
+  .marquee-segment[aria-hidden="true"] {
+    display: none;
   }
 
   .poster-frame,
   .card-a,
-  .card-b {
+  .card-b,
+  .lineup-card {
     transform: none;
+  }
+
+  .lineup-card:hover,
+  .card-a:hover,
+  .card-b:hover {
+    transform: none;
+    box-shadow: none;
   }
 
   .chev,
   details[open] .chev {
     transition: none;
+  }
+
+  .btn-primary,
+  .btn-primary:hover {
+    box-shadow: none;
   }
 
   *,

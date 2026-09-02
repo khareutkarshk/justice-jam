@@ -1,3 +1,6 @@
+// JJ-06 — PENDING CLIENT COPY: FAQ questions and answers below are placeholders.
+// Do not treat as final. Swap content when copy is issued without changing accordion structure.
+
 const faqs = [
   {
     question: "What time do doors open?",
@@ -57,11 +60,11 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-ink-900 py-16 sm:py-20"
+      className="bg-ink-900 py-16 sm:py-20 border-t-4 border-cream-100/10"
       aria-labelledby="faq-heading"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <p className="font-tag uppercase text-xs tracking-widest text-cream-100/50 mb-1 text-center">
+        <p className="font-tag uppercase text-sm tracking-[0.2em] text-cream-100/90 mb-1 text-center">
           FAQ
         </p>
         <h2
@@ -77,7 +80,7 @@ export function FAQ() {
               className="bg-ink-800 border-2 border-cream-100/10 p-5"
               open={faq.open}
             >
-              <summary className="flex justify-between items-center font-heading text-lg text-cream-100">
+              <summary className="flex justify-between items-center font-display text-lg text-cream-100">
                 {faq.question}
                 <Chevron />
               </summary>

@@ -4,31 +4,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/lib/images";
 import { Countdown } from "@/components/Countdown";
+import { TicketCta } from "@/components/TicketCta";
 
 export function Hero({ onPosterOpen }: { onPosterOpen: () => void }) {
-
   return (
     <section id="top" className="relative glow-bg overflow-hidden py-14 sm:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-        <p className="font-script text-2xl sm:text-3xl text-teal mb-3">
-          presenting
+        <p className="font-tag uppercase text-sm sm:text-base tracking-[0.2em] text-teal mb-3">
+          Presenting
         </p>
         <h1 className="font-display leading-[0.85] text-[3.6rem] sm:text-[6rem] lg:text-[7.5rem] text-cream-100 mt-2">
           JUSTICE JAM
         </h1>
         <p className="text-yellow text-lg mt-4">★ ★ ★ ★ ★ ★ ★ ★</p>
-        <p className="font-heading text-2xl sm:text-3xl mt-4 text-cream-100">
+        <p className="font-display text-2xl sm:text-3xl mt-4 text-cream-100">
           October 27 · 2026
         </p>
-        <p className="font-tag uppercase tracking-wide text-sm sm:text-base mt-1 text-cream-100/70">
+        <p className="font-tag uppercase tracking-[0.15em] text-sm sm:text-base mt-1 text-cream-100/70">
           Cannery Hall · Nashville, TN
         </p>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-12 grid lg:grid-cols-[1fr_1.1fr_1fr] gap-8 lg:gap-10 items-start relative z-10">
         <div className="order-2 lg:order-1 space-y-5">
-          <div className="bg-ink-900/70 border border-cream-100/15 p-5">
-            <p className="font-tag uppercase text-xs tracking-widest text-yellow mb-3">
+          <div className="bg-ink-900/70 border-2 border-cream-100/15 p-5">
+            <p className="font-tag uppercase text-xs tracking-[0.2em] text-yellow mb-3">
               The Facts
             </p>
             <dl className="text-sm font-tag uppercase space-y-2">
@@ -55,8 +55,8 @@ export function Hero({ onPosterOpen }: { onPosterOpen: () => void }) {
             </dl>
           </div>
 
-          <div className="bg-ink-900/70 border border-cream-100/15 p-5">
-            <p className="font-tag uppercase text-xs tracking-widest text-yellow mb-3">
+          <div className="bg-ink-900/70 border-2 border-cream-100/15 p-5">
+            <p className="font-tag uppercase text-xs tracking-[0.2em] text-yellow mb-3">
               Countdown
             </p>
             <Countdown />
@@ -86,14 +86,14 @@ export function Hero({ onPosterOpen }: { onPosterOpen: () => void }) {
               priority
             />
           </button>
-          <p className="font-tag uppercase text-xs tracking-widest text-cream-100/50 mt-3">
+          <p className="font-tag uppercase text-xs tracking-[0.2em] text-cream-100/50 mt-3">
             Tap poster to zoom
           </p>
         </div>
 
         <div className="order-3 space-y-4">
           <div className="border-2 border-teal bg-ink-900/70 p-5">
-            <p className="font-heading text-2xl text-cream-100 mb-2">Get In</p>
+            <p className="font-display text-2xl text-cream-100 mb-2">Get In</p>
             <p className="text-sm text-cream-100/70 mb-4">
               General Admission tickets are on sale now. VIP tiers to be
               announced.
@@ -102,12 +102,9 @@ export function Hero({ onPosterOpen }: { onPosterOpen: () => void }) {
             <p className="text-xs text-cream-100/50 mb-4">
               General Admission · 1,200 available
             </p>
-            <Link
-              href="#tickets"
-              className="block text-center bg-teal text-ink-900 font-tag uppercase tracking-widest px-6 py-3 hover:bg-yellow hover:text-ink-900 transition-colors"
-            >
+            <TicketCta className="btn-primary block text-center bg-teal text-ink-900 font-tag uppercase tracking-widest px-6 py-3 hover:bg-yellow hover:text-ink-900 transition-colors">
               Buy Now
-            </Link>
+            </TicketCta>
           </div>
           <p className="text-yellow text-center text-sm">★ ★ ★ ★ ★ ★ ★ ★</p>
         </div>

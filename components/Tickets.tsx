@@ -1,5 +1,7 @@
-import Link from "next/link";
+import { TicketCta } from "@/components/TicketCta";
 
+// JJ-07: Tier labels pending project lead confirmation (JJ-WEB-01 §07).
+// Availability counts and GA pricing are confirmed. Do not change GA ($125 / 1,200).
 const tiers = [
   {
     name: "General Admission",
@@ -11,9 +13,9 @@ const tiers = [
     availColor: "text-ink-900/70",
     cta: "Buy Now",
     ctaClass:
-      "block text-center bg-cream-100 text-ink-900 font-tag uppercase tracking-wide px-4 py-3 mt-5 hover:bg-ink-900 hover:text-cream-100 transition-colors",
+      "btn-primary block text-center bg-cream-100 text-ink-900 font-tag uppercase tracking-wide px-4 py-3 mt-5 hover:bg-ink-900 hover:text-cream-100 transition-colors",
     badge: "On Sale",
-    border: "",
+    isPurchase: true,
   },
   {
     name: "VIP Balcony",
@@ -26,7 +28,7 @@ const tiers = [
     cta: "Notify Me",
     ctaClass:
       "block text-center border-2 border-cream-100 text-cream-100 font-tag uppercase tracking-wide px-4 py-3 mt-5 hover:bg-cream-100 hover:text-ink-900 transition-colors",
-    border: "border-pink-600",
+    isPurchase: false,
   },
   {
     name: "High-Top Seating",
@@ -39,7 +41,7 @@ const tiers = [
     cta: "Notify Me",
     ctaClass:
       "block text-center border-2 border-cream-100 text-cream-100 font-tag uppercase tracking-wide px-4 py-3 mt-5 hover:bg-cream-100 hover:text-ink-900 transition-colors",
-    border: "border-yellow",
+    isPurchase: false,
   },
   {
     name: "Meet & Greet Add-On",
@@ -52,7 +54,7 @@ const tiers = [
     cta: "Notify Me",
     ctaClass:
       "block text-center border-2 border-cream-100 text-cream-100 font-tag uppercase tracking-wide px-4 py-3 mt-5 hover:bg-cream-100 hover:text-ink-900 transition-colors",
-    border: "border-teal",
+    isPurchase: false,
   },
 ];
 
@@ -60,13 +62,17 @@ export function Tickets() {
   return (
     <section
       id="tickets"
-      className="bg-ink-900 py-16 sm:py-20 border-t-4 border-teal"
+      className="bg-ink-900 py-16 sm:py-20 border-t-[6px] border-teal"
+      aria-labelledby="tickets-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <p className="font-tag uppercase text-xs tracking-widest text-cream-100/50 mb-1 text-center">
+        <p className="font-tag uppercase text-sm tracking-[0.2em] text-cream-100/90 mb-1 text-center">
           Tickets
         </p>
-        <h2 className="font-display text-5xl sm:text-6xl text-cream-100 text-center mb-12">
+        <h2
+          id="tickets-heading"
+          className="font-display text-5xl sm:text-6xl text-cream-100 text-center mb-12"
+        >
           GET IN
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -88,14 +94,27 @@ export function Tickets() {
               <p className={`text-xs mt-2 ${tier.availColor}`}>
                 {tier.availability}
               </p>
-              <Link href="#" className={tier.ctaClass}>
-                {tier.cta}
-              </Link>
+              {tier.isPurchase ? (
+                <TicketCta className={tier.ctaClass}>{tier.cta}</TicketCta>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  title="Notify Me — email capture pending (JJ-07)"
+                  className={`${tier.ctaClass} opacity-60 cursor-not-allowed`}
+                >
+                  {tier.cta}
+                </button>
+              )}
             </div>
           ))}
         </div>
         <p className="text-sm font-tag uppercase tracking-wide text-yellow mt-6 text-center">
           Needs Client Input — 3 tiers pending final pricing from the venue.
+        </p>
+        <p className="text-xs font-tag uppercase tracking-wide text-cream-100/50 mt-2 text-center">
+          AXS ticketing link pending — purchase CTAs scroll here until live URL is
+          issued
         </p>
       </div>
     </section>

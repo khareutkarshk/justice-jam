@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { EventSchema } from "@/components/EventSchema";
 import { SkipLink } from "@/components/SkipLink";
+import { TrackingPixel } from "@/components/TrackingPixel";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         suppressHydrationWarning
       >
         <SkipLink />
+        <TrackingPixel />
         <EventSchema />
         {children}
       </body>
