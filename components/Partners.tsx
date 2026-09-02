@@ -5,8 +5,15 @@ export function Partners() {
   return (
     <section className="bg-cream-100 py-10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-center gap-10">
-        <SponsorLogo src={images.washIp} alt="Washington Innocence Project" />
-        <SponsorLogo src={images.tennIp} alt="Tennessee Innocence Project" />
+        <SponsorLogo
+          src={images.washIpDark}
+          alt="Washington Innocence Project"
+        />
+        <SponsorLogo
+          src={images.tennIp}
+          alt="Tennessee Innocence Project"
+          className="h-9 w-auto shrink-0 brightness-0"
+        />
         <SponsorLogo src={images.vitalogy} alt="Vitalogy Foundation" />
         <SponsorLogo
           src={images.soundEmporium}

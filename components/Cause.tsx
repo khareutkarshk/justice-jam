@@ -3,7 +3,7 @@ import { images } from "@/lib/images";
 
 export function Cause() {
   return (
-    <section id="cause" className="grid sm:grid-cols-2 border-t-[6px] border-yellow/40">
+    <section id="cause" className="grid sm:grid-cols-2 border-t-[6px] border-yellow">
       <div className="bg-teal p-10 sm:p-14 flex flex-col items-start border-b-4 sm:border-b-0 sm:border-r-4 border-ink-900/20">
         <SponsorLogo
           src={images.washIp}
@@ -35,8 +35,8 @@ export function Cause() {
         </p>
       </div>
       {/* JJ-09 — ON HOLD: Impact statistics module. Awaiting approved client copy. Do not source or estimate figures. */}
-      <div className="col-span-full bg-ink-900 p-8 flex justify-center border-t-4 border-dashed border-yellow/40">
-        <div className="border-2 border-dashed border-yellow p-5 max-w-3xl">
+      <div className="col-span-full bg-ink-900 p-8 flex justify-center border-t-4 border-dashed border-yellow">
+        <div className="border border-dashed border-yellow p-5 max-w-3xl">
           <p className="font-tag uppercase text-xs tracking-[0.2em] text-yellow mb-1">
             Needs Client Input
           </p>
