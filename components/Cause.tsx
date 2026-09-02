@@ -1,16 +1,14 @@
-import Image from "next/image";
+import { SponsorLogo } from "@/components/SponsorLogo";
 import { images } from "@/lib/images";
 
 export function Cause() {
   return (
     <section id="cause" className="grid sm:grid-cols-2 border-t-[6px] border-yellow/40">
       <div className="bg-teal p-10 sm:p-14 flex flex-col items-start border-b-4 sm:border-b-0 sm:border-r-4 border-ink-900/20">
-        <Image
+        <SponsorLogo
           src={images.washIp}
           alt="Washington Innocence Project"
-          width={160}
-          height={40}
-          className="h-10 w-auto mb-5"
+          className="h-10 w-auto shrink-0 mb-5"
         />
         <p className="font-display text-2xl text-ink-900 mb-3">
           Washington Innocence Project
@@ -22,12 +20,10 @@ export function Cause() {
         </p>
       </div>
       <div className="bg-pink-600 p-10 sm:p-14 flex flex-col items-start">
-        <Image
+        <SponsorLogo
           src={images.tennIp}
           alt="Tennessee Innocence Project"
-          width={160}
-          height={40}
-          className="h-10 w-auto mb-5"
+          className="h-10 w-auto shrink-0 mb-5"
         />
         <p className="font-display text-2xl text-cream-100 mb-3">
           Tennessee Innocence Project

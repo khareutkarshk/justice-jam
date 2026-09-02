@@ -113,13 +113,17 @@ body {
 }
 
 .marquee-track {
-  display: flex;
-  width: max-content;
-  animation: scrollx 35s linear infinite;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  animation: scrollx 40s linear infinite;
+  will-change: transform;
 }
 
 .marquee-segment {
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding-right: 0;
 }
 
 @keyframes scrollx {
@@ -214,14 +218,20 @@ summary:focus-visible,
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
-    width: 100%;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    white-space: normal;
+    width: 100%;
     text-align: center;
   }
 
   .marquee-segment[aria-hidden="true"] {
     display: none;
+  }
+
+  .marquee-segment:not([aria-hidden="true"]) {
+    white-space: normal;
   }
 
   .poster-frame,
